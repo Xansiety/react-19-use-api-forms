@@ -1,13 +1,14 @@
 import { useActionState } from "react";
 import { createPlanetActionForm } from "../../actions/create-planet.action";
 import { Planet } from "../../interfaces/planet.interface";
+import { SubmitButton } from "./SubmitButton";
 
 interface Props {
   onAddPlanet: (planet: Planet) => void;
 }
 
 export const EditPlanetForm = ({ onAddPlanet }: Props) => {
-  const [_state, formAction, isPending] = useActionState(
+  const [_state, formAction] = useActionState(
     async (prevState: unknown, queryData: FormData) => {
       const planet = await createPlanetActionForm(prevState, queryData);
       onAddPlanet(planet);
@@ -38,13 +39,7 @@ export const EditPlanetForm = ({ onAddPlanet }: Props) => {
         name="distanceFromSun"
         required
       />
-      <button
-        type="submit"
-        className="bg-blue-500 text-white p-2 rounded flex-1 sm:flex-none :disabled:bg-gray-300 :disabled:text-gray-500 :disabled:cursor-not-allowed"
-        disabled={isPending}
-      >
-        Agregar planeta
-      </button>
+      <SubmitButton />
     </form>
   );
 };

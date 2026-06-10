@@ -32,13 +32,13 @@
     },
     {
       "id": "fc22",
-      "name": "Saturno",
+      "name": "SATURNO",
       "type": "Planeta",
       "distanceFromSun": "232324"
     },
     {
       "id": "adc7",
-      "name": "Urano",
+      "name": "URANO",
       "type": "Planeta",
       "distanceFromSun": "850 Millones de km"
     }
